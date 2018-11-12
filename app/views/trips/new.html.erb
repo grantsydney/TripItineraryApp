@@ -1,0 +1,8 @@
+<h1>Trips#new</h1>
+<p>Find me in app/views/trips/new.html.erb</p>
+
+Where do you want to go?
+ <%= form_for @trip do |f| %>
+   <%= f.collection_select :location_id, @locations, :id, :city %>
+   <%= f.submit %>
+ <% end %>

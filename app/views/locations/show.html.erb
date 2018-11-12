@@ -1,2 +1,15 @@
 <h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+
+
+<h1><%= @location.city %>, <%= @location.country %></h1>
+
+<%= button_to "RESTAURANTS", @location, method: :get %>
+<h1>OR</h1>
+<%= button_to "LANDMARKS", @location %>
+
+<% @location.restaurants.each do |loc| %>
+  <%= loc.name %>
+<% end %>
+
+
+<!-- is it @location.restaurants and same for landmarks ??? -->
