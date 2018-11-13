@@ -1,8 +1,10 @@
 <h1>Users#show</h1>
-<h2><%= @user.name %>'s Itinerary</h2>
 
-<h2>You are headed to <%= @location.city%></h2>
-<h3> <%=link_to "See landmarks", "/locations/#{@location.id}/landmarks" %></h3>
-<h3> <%=link_to "See Restaurants", "/locations/#{@location.id}/restaurants" %></h3>
+<% if current_user.id == @user.id %>
+  <h2><%= @user.name %>'s Itinerary</h2>
 
+  <h2>You are headed to <%= @location.city%></h2>
+  <h3> <%=link_to "See landmarks", "/locations/#{@location.id}/landmarks" %></h3>
+  <h3> <%=link_to "See Restaurants", "/locations/#{@location.id}/restaurants" %></h3>
+<% end  %>
 <!--must show landmarks and restaurants they are visiting-->
