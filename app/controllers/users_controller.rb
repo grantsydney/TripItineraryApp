@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show]
+  before_action :find_user, only: [:show, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
 
   def new
-
+    @user = User.new
+    render :new
   end
 
   def create
+    @user = User.create(user_params)
+    if @user.valid?
+      login_user(@user)
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -23,12 +32,12 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @location = Location.find(session[:my_future_trip])
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :username)
+    params.require(:user).permit(:name, :username, :password)
   end
 
   def find_user

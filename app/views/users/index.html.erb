@@ -1,2 +1,8 @@
 <h1>Users#index</h1>
 <h1>Welcome enter your username to login or sign up.</h1>
+
+
+<%= form_for @user do |f| %>
+  <%= f.collection_select :user_id, @users, :id, :name %>
+  <%= f.submit %>
+<% end %>

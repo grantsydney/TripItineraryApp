@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   def location_landmarks
     @location = Location.find_by(id: params[:location_id])
     @landmarks = @location.landmarks
+    
   end
 
   def location_restaurants

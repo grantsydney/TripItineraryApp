@@ -1,2 +1,7 @@
 <h1>Landmarks#show</h1>
-<p>Find me in app/views/landmarks/show.html.erb</p>
+
+<h1><%= @landmark.name %></h1><%= link_to "add to my itinerary", users_path(user.id, trip_id: session[:trip_id], landmark_id: session[:landmark_id]) method: :post%>
+
+<h3><%= @landmark.description %></h3>
+
+#add image url

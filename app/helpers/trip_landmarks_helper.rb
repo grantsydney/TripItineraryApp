@@ -1,0 +1,2 @@
+module TripLandmarksHelper
+end
