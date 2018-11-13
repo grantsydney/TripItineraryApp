@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       login_user(@user)
-      redirect_to @user
+      redirect_to new_trip_path
     else
       render 'new'
     end
@@ -32,7 +32,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @location = Location.find(session[:my_future_trip])
+    @trip = Trip.find_by(id: session[:trip_id])
+    @my_trip_landmarks = TripLandmark.all.select do |tl|
+      tl.trip_id == session[:trip_id]
+    end
   end
 
   private

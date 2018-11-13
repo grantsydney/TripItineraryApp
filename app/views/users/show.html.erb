@@ -1,10 +1,22 @@
 <h1>Users#show</h1>
 
-<% if current_user.id == @user.id %>
+<% if current_user && @user != nil && current_user.id == @user.id %>
+
+
   <h2><%= @user.name %>'s Itinerary</h2>
 
-  <h2>You are headed to <%= @location.city%></h2>
-  <h3> <%=link_to "See landmarks", "/locations/#{@location.id}/landmarks" %></h3>
-  <h3> <%=link_to "See Restaurants", "/locations/#{@location.id}/restaurants" %></h3>
+  <% @my_trip_landmarks.each do |tl| %>
+  <%= tl.landmark.name %><br>
+  <% end %>
+
+
+
+  <h2>You are headed to <%= @trip.location.city%></h2
+  <h3> <%=link_to "See landmarks", "/locations/#{@trip.location.id}/landmarks" %></h3>
+  <h3> <%=link_to "See Restaurants", "/locations/#{@trip.location.id}/restaurants" %></h3>
+<% else %>
+  <h1>You do not have access to another user's itinerary</h1>
 <% end  %>
+
+
 <!--must show landmarks and restaurants they are visiting-->

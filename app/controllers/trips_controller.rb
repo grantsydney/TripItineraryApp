@@ -5,14 +5,14 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @locations = Location.all
-    @users = User.all
+    @user = User.find_by(id: session[:user_id])
   end
 
   def create
     @trip = Trip.create(user_id: session[:user_id], location_id: trip_params[:location_id])
+    session[:trip_id] = @trip.id
     # session[:my_future_trip] = trip_params[:location_id]
-    redirect_to user_path(trip_params[:user_id])
-
+    redirect_to user_path(session[:user_id])
     # location_path(trip_params[:location_id])
   end
 
