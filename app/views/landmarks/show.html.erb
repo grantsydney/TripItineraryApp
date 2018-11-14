@@ -1,16 +1,13 @@
 <h1>Landmarks#show</h1>
-
 <h1><%= @landmark.name %></h1>
 
 <h3><%= @landmark.description %></h3>
 
-#button with option to add to itinerary
-#if clicked, alert pops up notifiying user that landmark was added to itineray
 <%= button_to "Add to my itinerary",  landmark_path(@landmark), params: {trip_landmark: {trip_id: session[:trip_id], landmark_id: @landmark.id}}%>
 <h3><%= flash[:added] %></h3>
-three options:
-view more landmarks?
-view restaurants?
-view itinerary?
 
-#add image url
+<ul>
+  <li><%= link_to "View more landmarks", "/locations/#{@landmark.location_id}/landmarks" %></li>
+  <li><%= link_to "View restaurants", "/locations/#{@landmark.location_id}/restaurants" %></li>
+  <li><%= link_to "View itinerary", user_path(current_user) %> </li>
+</ul>
