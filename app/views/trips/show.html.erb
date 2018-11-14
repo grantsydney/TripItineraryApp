@@ -30,6 +30,7 @@
   <h3> <%=link_to "Add Restaurants", "/locations/#{@trip.location.id}/restaurants" %></h3>
 
   <h3> <%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></h3>
+  <h3> <%= link_to "View All my Trips", user_path(@trip.user) %> </h3>
 
   <% else %>
 

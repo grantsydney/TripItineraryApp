@@ -6,7 +6,7 @@
     <h2>My Trips</h2>
 
     <% @user.trips.each_with_index do |trip, i| %>
-      <p> <%= link_to "#{i+1}: #{trip.location.city}", trip_path(trip) %> </p>
+      <p><%= "#{i+1}: #{trip.location.city} |" %> <%= link_to "See Itinerary", trip_path(trip) %> </p>
     <% end %>
 
 

@@ -11,7 +11,7 @@
   <ul>
     <li><%= link_to "View restaurants", "/locations/#{@restaurant.location_id}/restaurants" %></li>
     <li><%= link_to "View more landmarks", "/locations/#{@restaurant.location_id}/landmarks" %></li>
-    <li><%= link_to "View itinerary", user_path(current_user) %> </li>
+    <li><%= link_to "View itinerary", trip_path(session[:trip_id]) %> </li>
   </ul>
   <% else %>
   <h3>Restaurant not Found</h3>
