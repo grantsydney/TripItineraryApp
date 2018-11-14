@@ -25,6 +25,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
+    redirect_to user_path(current_user)
   end
 
   private

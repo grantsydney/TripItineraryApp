@@ -6,8 +6,8 @@
 
   <% if @trip.landmarks.count > 0 %>
     <h3>Landmarks Visiting on Trip</h3>
-    <% @trip.landmarks.each do |tl| %>
-      <p><%= link_to tl.name, tl %><br></p>
+    <% @trip.trip_landmarks.each do |tl| %>
+      <p><%= link_to tl.landmark.name, landmark_path(tl.landmark) %> | <%= link_to "Delete", trip_landmark_path(tl), method: :delete%><br></p>
     <% end %>
 
     <% else %>
@@ -20,7 +20,7 @@
   <% if @trip.restaurants.count > 0 %>
     <h3>Restaurants Visiting on Trip</h3>
     <% @trip.restaurants.each do |tr| %>
-      <p><%= link_to tr.name, tr %></p>
+      <p><%= link_to tr.name, tr %> | </p>
     <% end %>
 
     <% else %>

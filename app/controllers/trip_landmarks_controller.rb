@@ -1,5 +1,5 @@
 class TripLandmarksController < ApplicationController
-
+  before_action :find_trip_landmark, only: [:destroy]
 
   def new
   end
@@ -10,6 +10,11 @@ class TripLandmarksController < ApplicationController
     redirect_to landmark_path(@trip_landmark.landmark_id)
   end
 
+  def destroy
+    id = @trip_landmark.trip.id
+    @trip_landmark.destroy
+    redirect_to trip_path(id)
+  end
 
   private
 
@@ -17,5 +22,8 @@ class TripLandmarksController < ApplicationController
     params.require(:trip_landmark).permit(:trip_id, :landmark_id)
   end
 
+  def find_trip_landmark
+    @trip_landmark = TripLandmark.find(params[:id])
+  end
 
 end
