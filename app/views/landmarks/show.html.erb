@@ -1,13 +1,17 @@
 <h1>Landmarks#show</h1>
-<h1><%= @landmark.name %></h1>
+<% if @landmark %>
+  <h1><%= @landmark.name %></h1>
 
-<h3><%= @landmark.description %></h3>
+  <h3><%= @landmark.description %></h3>
 
-<%= button_to "Add to my itinerary",  landmark_path(@landmark), params: {trip_landmark: {trip_id: session[:trip_id], landmark_id: @landmark.id}}%>
-<h3><%= flash[:added] %></h3>
+  <%= button_to "Add to my itinerary",  landmark_path(@landmark), params: {trip_landmark: {trip_id: session[:trip_id], landmark_id: @landmark.id}}%>
+  <h3><%= flash[:added] %></h3>
 
-<ul>
-  <li><%= link_to "View more landmarks", "/locations/#{@landmark.location_id}/landmarks" %></li>
-  <li><%= link_to "View restaurants", "/locations/#{@landmark.location_id}/restaurants" %></li>
-  <li><%= link_to "View itinerary", user_path(current_user) %> </li>
-</ul>
+  <ul>
+    <li><%= link_to "View more landmarks", "/locations/#{@landmark.location_id}/landmarks" %></li>
+    <li><%= link_to "View restaurants", "/locations/#{@landmark.location_id}/restaurants" %></li>
+    <li><%= link_to "View itinerary", user_path(current_user) %> </li>
+  </ul>
+  <% else %>
+    <h3>Landmark not found</h3>
+<% end %>

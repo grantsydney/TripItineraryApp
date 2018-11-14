@@ -1,5 +1,18 @@
-<h1>Restaurants#show</h1>
+<h1>Restaurant#show</h1>
 
-<h1><%= @restaurant.name %></h1>
+<% if @restaurant %>
+  <h1><%= @restaurant.name %></h1>
 
-<h3><%= @restaurant.cusine %></h3>
+  <h3><%= @restaurant.cuisine %></h3>
+
+  <%= button_to "Add to my itinerary",  restaurant_path(@restaurant), params: {trip_restauran: {trip_id: session[:trip_id], restaurant_id: @restaurant.id}}%>
+  <h3><%= flash[:added] %></h3>
+
+  <ul>
+    <li><%= link_to "View restaurants", "/locations/#{@restaurant.location_id}/restaurants" %></li>
+    <li><%= link_to "View more landmarks", "/locations/#{@restaurant.location_id}/landmarks" %></li>
+    <li><%= link_to "View itinerary", user_path(current_user) %> </li>
+  </ul>
+  <% else %>
+  <h3>Restaurant not Found</h3>
+<% end %>
