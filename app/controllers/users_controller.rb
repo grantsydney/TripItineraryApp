@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :destroy]
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorized, only: [:new, :create, :show]
 
   def new
     @user = User.new
@@ -35,6 +35,9 @@ class UsersController < ApplicationController
     @trip = Trip.find_by(id: session[:trip_id])
     @my_trip_landmarks = TripLandmark.all.select do |tl|
       tl.trip_id == session[:trip_id]
+    end
+    @my_trip_restaurants = TripRestaurant.all.select do |tr|
+      tr.trip_id == session[:trip_id]
     end
   end
 

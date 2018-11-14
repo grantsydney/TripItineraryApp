@@ -16,6 +16,7 @@ get '/locations/:location_id/restaurants', to: "locations#location_restaurants"
 get '/locations/:location_id/landmarks', to: "locations#location_landmarks"
 
 post 'landmarks/:id', to: "trip_landmarks#create"
+post 'restaurants/:id', to: "trip_restaurants#create"
 
 #custom session route for login
 get '/login', to: 'sessions#new', as: :login

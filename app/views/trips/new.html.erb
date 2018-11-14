@@ -1,8 +1,5 @@
-<h1>Trips#new</h1>
-
-
-
-Where do you want to go <%= @user.name %>?
+<h1>Hi  <%= @user.name %></h1>
+<p>Where do you want to go?</p>
  <%= form_for @trip do |f| %>
    <%= f.collection_select :location_id, @locations, :id, :city %>
    <%= f.submit %>

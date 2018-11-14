@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  before_action :find_trip, only: [:show]
+  before_action :find_trip, only: [:show, :destroy]
 
   def new
     @trip = Trip.new
@@ -21,6 +21,10 @@ class TripsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @trip.destroy
   end
 
   private

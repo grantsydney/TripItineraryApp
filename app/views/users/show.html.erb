@@ -1,19 +1,21 @@
-<h1>Users#show</h1>
 
 <% if current_user && @user != nil && current_user.id == @user.id %>
 
 
-  <h2><%= @user.name %>'s Itinerary</h2>
+  <% if @user.trips.count > 0 %>
+    <h2>My Trips</h2>
 
-  <% @my_trip_landmarks.each do |tl| %>
-  <%= tl.landmark.name %><br>
+    <% @user.trips.each_with_index do |trip, i| %>
+      <p> <%= link_to "#{i+1}: #{trip.location.city}", trip_path(trip) %> </p>
+    <% end %>
+
+
+  <% else %>
+    <h2>You haven't planned a trip yet</h2>
   <% end %>
 
+  <h3><%= link_to "Create New Trip", new_trip_path %></h3>
 
-
-  <h2>You are headed to <%= @trip.location.city%></h2
-  <h3> <%=link_to "See landmarks", "/locations/#{@trip.location.id}/landmarks" %></h3>
-  <h3> <%=link_to "See Restaurants", "/locations/#{@trip.location.id}/restaurants" %></h3>
 <% else %>
   <h1>You do not have access to another user's itinerary</h1>
 <% end  %>
