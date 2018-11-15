@@ -1,13 +1,23 @@
-<h1>Login</h1>
 
-<h2><%= flash[:notice] %></h2>
 
-<%= form_tag login_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <br>
-  <%= submit_tag 'Login' %>
-<% end %>
+<div id="login-background">
+</div>
+
+<div id="login-content">
+  <h1>Login</h1>
+
+<h2 id="invalid-login"><%= flash[:notice] %></h2>
+
+<div id="login-form">
+  <%= form_tag login_path, {class: 'ui form'} do %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+    <br><br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br><br>
+    <%= submit_tag 'Login', {class: 'ui green button'} %>
+  <% end %>
+</div>
+
+</div>
