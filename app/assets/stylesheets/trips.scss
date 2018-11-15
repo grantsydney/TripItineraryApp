@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //CSS FOR TRIPS SHOW (itinerary instance)
+
+.type-it{
+  color: black;
+  font-family: 'Inconsolata', monospace;
+}
+
+#itinerary-user-name-text{
+  font-size: 7em;
+  position: absolute;
+  top: 30;
+}
+
 #my-itinerary-background{
   background-image: asset-url('wood.png');
   background-position: center;
@@ -51,6 +63,9 @@
 }
 
 
+.trip-link {
+  font-family: 'Inconsolata', monospace !important;
+}
 
 
 
