@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+#universal-login{
+position: absolute;
+z-index: 2;
+right: 7px;
+top: 7px;
+}
+
+#universal-logout{
+position: absolute;
+z-index: 2;
+right: 0;
+}
