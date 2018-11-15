@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
 
+get '/', to: "welcome#index"
 
-resources :users
-resources :locations
-resources :restaurants
-resources :landmarks
-resources :trips
-resources :trip_landmarks
+resources :users, only: [:new, :create, :show, :index]
+resources :restaurants, only: [:index, :show]
+resources :landmarks, only: [:index, :show]
+resources :trips, only: [:new, :create, :show, :destroy]
+resources :trip_landmarks, only: [:new, :create, :destroy]
+resources :trip_restaurants, only: [:new, :create, :destroy]
 
+get '/places', to: "places#index"
 
-get '/', to: 'welcome#index'
-
+post '/users/:id', to: "users#show"
 
 get '/locations/:location_id/restaurants', to: "locations#location_restaurants"
-
 get '/locations/:location_id/landmarks', to: "locations#location_landmarks"
 
 post 'landmarks/:id', to: "trip_landmarks#create"
@@ -23,8 +23,6 @@ post 'restaurants/:id', to: "trip_restaurants#create"
 get '/login', to: 'sessions#new', as: :login
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy', as: :logout
-
-post '/users/:id', to: "users#show"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,33 @@
+
+<%= form_tag places_path, method: :get, class: "search-form" do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Search for activity") %>
+  <%= button_tag "Find Activities" %>
+
+<% end %>
+
+
+
+
+<% if @places %>
+  <% @places.each do |place| %>
+    <p><%= "#{place.name} Rating: #{place.rating}"%> <%= link_to "Add to Itinerary"  %></p>
+  <% end  %>
+<% end %>
+
+
+
+
+<GooglePlaces::Spot:0x007fdb3ea99518 @reference="ChIJQUmvBki1RIYRjM_0BZyMx7k",
+@place_id="ChIJQUmvBki1RIYRjM_0BZyMx7k",
+@vicinity=nil,
+@lat=30.2748102,
+@lng=-97.7742639,
+@viewport={"northeast"=>{"lat"=>30.27591667989272, "lng"=>-97.77317507010727}, "southwest"=>{"lat"=>30.27321702010728, "lng"=>-97.77587472989272}}, @name="Rowing Dock",
+@icon="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+@types=["point_of_interest", "establishment"], @id="bdb997caaa87d9caa55aacae82b2cb71affa1eeb",
+@formatted_phone_number=nil,
+@international_phone_number=nil,
+@formatted_address="2418 Stratford Dr, Austin, TX 78746, USA",
+@address_components=nil,
+@street_number=nil, @street=nil, @city=nil, @region=nil, @postal_code=nil, @country=nil,
+@rating=4.7, @price_level=nil, @opening_hours={"open_now"=>false}, @url=nil, @cid=0, @website=nil, @zagat_reviewed=nil, @zagat_selected=nil, @aspects=[], @review_summary=nil, @photos=[#<GooglePlaces::Photo:0x007fdb3ea99388 @width=1080, @height=608, @photo_reference="CmRaAAAA0ZfBy1gOf-sAToYhRsJwKG7djTzund4v8AikGSewpGhk8_gkQZoq1ssl7CekgBCNm4tBUM3TnavcL2BMw2nxdPyp_3Wisl-iiBJIQ0bAI0m92MdQJmvwhTplOh2DzhdvEhAHJxU1BaEjddYJwVHAtD49GhT-GuYzg4QL_fTUaZEqX5nFDYDUWQ", @html_attributions=["<a href=\"https://maps.google.com/maps/contrib/110265641380844614720/photos\">Rowing Dock</a>"], @api_key="AIzaSyCb-w2O-WTTVnThPA7QjUB-ZwFpRNa9YZ0">], @reviews=[], @nextpagetoken=nil, @events=[], @utc_offset=nil, @permanently_closed=nil>

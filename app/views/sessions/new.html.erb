@@ -1,8 +1,6 @@
 <h1>Login</h1>
 
-<% if flash[:errors] %>
-  <h2><%= flash[:notice] %></h2>
-<% end %>
+<h2><%= flash[:notice] %></h2>
 
 <%= form_tag login_path do %>
   <%= label_tag :username %>
@@ -13,5 +11,3 @@
   <br>
   <%= submit_tag 'Login' %>
 <% end %>
-
-<%= link_to 'Signup', new_user_path %>
