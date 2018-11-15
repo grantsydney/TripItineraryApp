@@ -1,34 +1,52 @@
-
-
+<div id="my-itinerary-background">
 </div>
+<p class="type-it" id="itinerary-user-name-text"></p>
+  <!-- <h2 id="itinerary-user-name-text"><%= @trip.user.name %>'s Itinerary</h2> -->
+<div id="my-itinerary-content">
 
-<% if @trip %>
-<% session[:trip_id] = @trip.id %>
-  <h2><%= @trip.user.name %>'s Itinerary</h2>
-  <h2>You are headed to <%= @trip.location.city%></h2>
+  <% if @trip %>
+  <% session[:trip_id] = @trip.id %>
+
+  <h2>You are headed to <%= @trip.location.city%>.</h2>
 
 
-<!--if events, list them, else, say no events added-->
+  <!--if events, list them, else, say no events added-->
 
   <% if @trip.places.count > 0 %>
-    <h3>What's On Your Agenda?</h3>
-    <% @trip.places.each do |p| %>
-      <p><%= link_to p.name, p %> | <%= link_to "Delete", place_path(p), method: :delete%><br></p>
-    <% end %>
+  <h3>What's On Your Agenda?</h3>
+  <% @trip.places.each do |p| %>
+  <p><%= link_to p.name, p, :class => "trip-link" %> | <%= link_to "Delete", place_path(p), :method => :delete, :class => "trip-link" %><br></p>
+  <% end %>
 
-    <% else %>
-      <h3>No Events Added To Your Trip Yet</h3>
+  <% else %>
+  <h3>No Events Added To Your Trip Yet</h3>
 
   <% end  %>
 
-  <h3> <%=link_to "Add Events", places_path %></h3>
-
-
-
-  <h3> <%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></h3>
-  <h3> <%= link_to "View All my Trips", user_path(@trip.user) %> </h3>
 
   <% else %>
 
   <h3>No Trip Found <%= link_to "Create new trip", new_trip_path %></h3>
-<% end %>
+  <% end %>
+</div>
+
+<div id="my-itinerary-button-options">
+
+  <p class="my-itinerary-buttons"> <%=link_to "Add Events", places_path %></p>
+  <p class="my-itinerary-buttons"> <%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></p>
+  <p class="my-itinerary-buttons"> <%= link_to "View All my Trips", user_path(@trip.user) %> </p>
+</div>
+
+<script type="text/javascript">
+  new TypeIt('.type-it', {
+    strings: "<%= @trip.user.name %>'s Itinerary."
+});
+
+let userItineraryTitle = document.getElementById('itinerary-user-name-text');
+
+      userItineraryTitle.style.position = 'absolute';
+      userItineraryTitle.style.top = '6%';
+      userItineraryTitle.style.paddingLeft = '2%';
+      // userItineraryTitle.style.'font-family' = ('Kalam', cursive);
+
+</script>
