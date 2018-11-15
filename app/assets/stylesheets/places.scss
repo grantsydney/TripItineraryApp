@@ -27,13 +27,42 @@
 }
 
 .place-description{
-  width: 50%;
+  width: 75%;
   margin: auto;
 }
 
 .place_image img {
   margin-bottom: 10px;
+}
 
+#place-rating {
+  padding-top: 7.5%;
+  text-align: center;
+}
+
+#place-name {
+  padding: 25px 0px;
+}
+
+.places-text{
+  padding-top: 2.5%;
+  text-align: justify;
+  float: left;
+  width: 40%;
+}
+
+.places-image{
+  float: right;
+  // width: 50%;
+  margin-right: 60px;
+  // overflow: hidden;
+}
+
+.button-container{
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 30px;
+  clear: both;
 }
 
 .place-phone{
@@ -42,30 +71,4 @@
 
 .itinerary-return{
   float: right;
-}
-
-.button-container{
-  width: 40%;
-  margin: 0 auto;
-}
-
-#trip-new-text{
-  width: 100%;
-  height: 100%;
-  padding-top: 5%;
-  opacity: 1;
-}
-
-#welcome-user-name{
-  position: absolute;
-  font-size: 3em;
-  top: 20%;
-  left: 45%;
-  width: 20%;
-  height: 10%;
-}
-
-#destination-q {
-  font-size: 1.5em;
-
 }

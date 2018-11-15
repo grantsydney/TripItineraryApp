@@ -3,34 +3,40 @@
 </div>
 
 <div id="places-content">
+    <h1 id="place-name"><%= @place.name %></h1>
 
-  <h1><%= @place.name %></h1>
+  <div class="places-text">
 
-  <p>Rated: <%= @place.rating %> stars.</p>
-  <% if @place.description %>
-    <div class="place-description">
-      <%= @place.description %>
-    </div>
+    <p id="place-rating">Rated: <%= @place.rating %> Stars.</p>
+    <% if @place.description %>
+      <div class="place-description">
+        <%= @place.description %>
+      </div>
+      <% end %>
+
+  </div>
+
+  <div class="places-image">
+
+    <% if @place.img_url %>
+      <div class="place_image">
+        <img src="<%= @place.img_url %>" height="400" width="400">
+      </div>
     <% end %>
 
-  <% if @place.img_url %>
-    <div class="place_image">
-      <img src="<%= @place.img_url %>" height="450" width="450">
-    </div>
-  <% end %>
-
-<div class="button-container">
-
-
-  <% if @place.phone %>
-    <div class="place-phone ui green button">
-      <a href="tel:+1<%=@place.phone.gsub(/[-() ]/, '') %>"><%= @place.phone %></a>
-    </div>
-  <% end %>
-
-  <div class="itinerary-return ui green button">
-    <%= link_to "View My Itinerary", trip_path(session[:trip_id]) %>
   </div>
+
+
+  <div class="button-container">
+    <% if @place.phone %>
+      <div class="place-phone ui green button">
+        <a href="tel:+1<%=@place.phone.gsub(/[-() ]/, '') %>"><%= @place.phone %></a>
+      </div>
+    <% end %>
+
+    <div class="itinerary-return ui green button">
+      <%= link_to "Back to Itinerary", trip_path(session[:trip_id]) %>
+    </div>
   </div>
 
 </div>

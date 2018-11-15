@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def new #GET to login
-    render :new
+    if current_user
+      redirect_to current_user
+    else
+      render :new
+    end
   end
 
   def create #POST to login
