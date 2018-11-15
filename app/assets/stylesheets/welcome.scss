@@ -1,0 +1,53 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+a:hover, a:visited {
+  color: black;
+}
+
+#background {
+  background-image: asset-url('aeroplane-aircraft-airplane-1363794.jpg');
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  opacity: 0.9;
+}
+
+#splash-content {
+  color: black;
+
+  padding-top: 30px;
+  width: 40%;
+  height: 30%;
+  width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: auto;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+
+}
+
+// .splash-buttons {
+//   color: black !important;
+// }
+
+// #title {
+//   opacity: 1;
+//   color: black;
+// }
+//
+// #splash-text {
+//   color: black;
+//   text-align: center;
+//   opacity: 1 !important;
+//   z-index: 2;
+//
+// }

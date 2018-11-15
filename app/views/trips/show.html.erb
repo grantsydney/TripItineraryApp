@@ -1,33 +1,24 @@
 <% if @trip %>
+<% session[:trip_id] = @trip.id %>
   <h2><%= @trip.user.name %>'s Itinerary</h2>
   <h2>You are headed to <%= @trip.location.city%></h2>
 
 
-
+<!--if events, list them, else, say no events added-->
   <% if @trip.landmarks.count > 0 %>
-    <h3>Landmarks Visiting on Trip</h3>
+    <h3>What's On Your Agenda?</h3>
     <% @trip.trip_landmarks.each do |tl| %>
       <p><%= link_to tl.landmark.name, landmark_path(tl.landmark) %> | <%= link_to "Delete", trip_landmark_path(tl), method: :delete%><br></p>
     <% end %>
 
     <% else %>
-      <h3>No Landmarks Added To Your Trip Yet</h3>
+      <h3>No Events Added To Your Trip Yet</h3>
 
   <% end  %>
 
-  <h3> <%=link_to "Add Landmarks", "/locations/#{@trip.location.id}/landmarks" %></h3>
+  <h3> <%=link_to "Add Events", places_path %></h3>
 
-  <% if @trip.restaurants.count > 0 %>
-    <h3>Restaurants Visiting on Trip</h3>
-    <% @trip.restaurants.each do |tr| %>
-      <p><%= link_to tr.name, tr %> | </p>
-    <% end %>
 
-    <% else %>
-      <h3>No Restaurants Added to Your Trip Yet</h3>
-  <% end %>
-
-  <h3> <%=link_to "Add Restaurants", "/locations/#{@trip.location.id}/restaurants" %></h3>
 
   <h3> <%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></h3>
   <h3> <%= link_to "View All my Trips", user_path(@trip.user) %> </h3>
