@@ -1,33 +1,36 @@
-<h1><%= @place.name %></h1>
+<div id="places-background">
 
+</div>
 
-<p>Rating: <%= @place.rating %></p>
-<% if @place.description %>
-  <div class="place-description">
-    <%= @place.description %>
-  </div>
+<div id="places-content">
+
+  <h1><%= @place.name %></h1>
+
+  <p>Rated: <%= @place.rating %> stars.</p>
+  <% if @place.description %>
+    <div class="place-description">
+      <%= @place.description %>
+    </div>
+    <% end %>
+
+  <% if @place.img_url %>
+    <div class="place_image">
+      <img src="<%= @place.img_url %>" height="450" width="450">
+    </div>
   <% end %>
 
+<div class="button-container">
+
+
   <% if @place.phone %>
-    <div class="place-phone">
+    <div class="place-phone ui green button">
       <a href="tel:+1<%=@place.phone.gsub(/[-() ]/, '') %>"><%= @place.phone %></a>
     </div>
   <% end %>
 
-<% if @place.img_url %>
-  <div class="place_image">
-    <img src="<%= @place.img_url %>" height="450" width="450">
+  <div class="itinerary-return ui green button">
+    <%= link_to "View My Itinerary", trip_path(session[:trip_id]) %>
   </div>
-<% end %>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-<p><%= link_to "View My Itinerary", trip_path(session[:trip_id]) %></p>
+</div>

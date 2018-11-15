@@ -1,0 +1,71 @@
+// Place all the styles related to the trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#places-background{
+  background-image: asset-url('rustic-surface-texture-1303092.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  opacity: .17;
+}
+
+#places-content {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  background-color: rgba(150, 150, 150, 0.3);
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 90%;
+}
+
+.place-description{
+  width: 50%;
+  margin: auto;
+}
+
+.place_image img {
+  margin-bottom: 10px;
+
+}
+
+.place-phone{
+  float: left;
+}
+
+.itinerary-return{
+  float: right;
+}
+
+.button-container{
+  width: 40%;
+  margin: 0 auto;
+}
+
+#trip-new-text{
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  opacity: 1;
+}
+
+#welcome-user-name{
+  position: absolute;
+  font-size: 3em;
+  top: 20%;
+  left: 45%;
+  width: 20%;
+  height: 10%;
+}
+
+#destination-q {
+  font-size: 1.5em;
+
+}
