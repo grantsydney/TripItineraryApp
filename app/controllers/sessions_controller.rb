@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     session.delete(:trip_id)
     flash[:notice] = "Logout Succesful"
-    redirect_to login_path
+    redirect_to '/'
   end
 
 

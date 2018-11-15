@@ -1,3 +1,14 @@
 <h1><%= @place.name %></h1>
 
-<li><%= link_to "View itinerary", trip_path(session[:trip_id]) %> </li>
+
+<p>Rating: <%= @place.rating %></p>
+
+
+
+
+
+
+
+
+
+<%= link_to "View My Itinerary", trip_path(session[:trip_id]) %>

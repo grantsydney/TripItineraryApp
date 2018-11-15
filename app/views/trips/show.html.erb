@@ -9,7 +9,7 @@
   <% if @trip.places.count > 0 %>
     <h3>What's On Your Agenda?</h3>
     <% @trip.places.each do |p| %>
-      <p><%= link_to p.name, p %></p>
+      <p><%= link_to p.name, p %> | <%= link_to "Delete", place_path(p), method: :delete%><br></p>
     <% end %>
 
     <% else %>

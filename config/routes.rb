@@ -8,7 +8,7 @@ resources :landmarks, only: [:index, :show]
 resources :trips, only: [:new, :create, :show, :destroy]
 resources :trip_landmarks, only: [:new, :create, :destroy]
 resources :trip_restaurants, only: [:new, :create, :destroy]
-resources :places, only: [:show]
+resources :places, only: [:show, :destroy]
 
 
 get '/places', to: "places#index"

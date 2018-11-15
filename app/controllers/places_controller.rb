@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :find_place, only: [:show]
+  before_action :find_place, only: [:show, :destroy]
   PLACES_KEY = ENV['PLACES_KEY']
 
   def index
@@ -17,12 +17,16 @@ class PlacesController < ApplicationController
     spot = @client.spot(params[:id])
     img_url = spot.photos[0].fetch_url(800)
     @place = Place.create(name: spot.name, rating: spot.rating, img_url: img_url, trip_id: session[:trip_id])
-    redirect_to current_user
+    redirect_to trip_path(session[:trip_id])
   end
 
   def show
   end
 
+  def destroy
+    @place.destroy
+    redirect_to trip_path(session[:trip_id])
+  end
 
   private
 
