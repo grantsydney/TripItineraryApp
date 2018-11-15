@@ -5,10 +5,11 @@
 
 
 <!--if events, list them, else, say no events added-->
-  <% if @trip.landmarks.count > 0 %>
+
+  <% if @trip.places.count > 0 %>
     <h3>What's On Your Agenda?</h3>
-    <% @trip.trip_landmarks.each do |tl| %>
-      <p><%= link_to tl.landmark.name, landmark_path(tl.landmark) %> | <%= link_to "Delete", trip_landmark_path(tl), method: :delete%><br></p>
+    <% @trip.places.each do |p| %>
+      <p><%= link_to p.name, p %> | <%= link_to "Delete", place_path(p), method: :delete%><br></p>
     <% end %>
 
     <% else %>
