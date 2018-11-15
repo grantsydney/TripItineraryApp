@@ -7,4 +7,6 @@ class Trip < ApplicationRecord
 
   has_many :trip_landmarks
   has_many :landmarks, through: :trip_landmarks
+
+  has_many :places
 end

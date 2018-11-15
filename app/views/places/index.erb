@@ -10,10 +10,10 @@
 
 <% if @places %>
   <% @places.each do |place| %>
-    <p><%= "#{place.name} Rating: #{place.rating}"%> <%= link_to "Add to Itinerary"  %></p>
-  <% end  %>
+    <p><%= "#{place.name} Rating: #{place.rating}"%>
+      <%= link_to "Add to Itinerary", custom_path(place.place_id), method: "post"%></p>
+  <% end %>
 <% end %>
-
 
 
 
