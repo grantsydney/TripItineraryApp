@@ -2,6 +2,23 @@
 
 
 <p>Rating: <%= @place.rating %></p>
+<% if @place.description %>
+  <div class="place-description">
+    <%= @place.description %>
+  </div>
+  <% end %>
+
+  <% if @place.phone %>
+    <div class="place-phone">
+      <a href="tel:+1<%=@place.phone.gsub(/[-() ]/, '') %>"><%= @place.phone %></a>
+    </div>
+  <% end %>
+
+<% if @place.img_url %>
+  <div class="place_image">
+    <img src="<%= @place.img_url %>" height="450" width="450">
+  </div>
+<% end %>
 
 
 
@@ -11,4 +28,6 @@
 
 
 
-<%= link_to "View My Itinerary", trip_path(session[:trip_id]) %>
+
+
+<p><%= link_to "View My Itinerary", trip_path(session[:trip_id]) %></p>

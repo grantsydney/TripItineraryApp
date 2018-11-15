@@ -15,8 +15,11 @@ class PlacesController < ApplicationController
     #create && redirect
     @client = GooglePlaces::Client.new(PLACES_KEY)
     spot = @client.spot(params[:id])
-    img_url = spot.photos[0].fetch_url(800)
-    @place = Place.create(name: spot.name, rating: spot.rating, img_url: img_url, trip_id: session[:trip_id])
+
+    img_url = spot.photos[0].fetch_url(800) if spot.photos.count > 0
+    description = spot.reviews.first.text if spot.reviews.first.text != nil
+    phone = spot.formatted_phone_number if spot.formatted_phone_number != nil
+    @place = Place.create(name: spot.name, rating: spot.rating, img_url: img_url, trip_id: session[:trip_id], description: description, phone: phone)
     redirect_to trip_path(session[:trip_id])
   end
 
@@ -31,7 +34,7 @@ class PlacesController < ApplicationController
   private
 
   def places_params
-    params.require(:places).permit(:name, :rating, :trip_id)
+    params.require(:places).permit(:name, :rating, :description, :phone, :trip_id)
   end
 
   def find_place
