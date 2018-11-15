@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, :show]
 
   def new
-    @user = User.new
-    render :new
+    if logged_in?
+      redirect_to current_user
+    else
+      @user = User.new
+      render :new
+    end 
   end
 
   def create
@@ -16,15 +20,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   def index

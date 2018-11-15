@@ -1,4 +1,5 @@
 <% if @trip %>
+<% session[:trip_id] = @trip.id %>
   <h2><%= @trip.user.name %>'s Itinerary</h2>
   <h2>You are headed to <%= @trip.location.city%></h2>
 
@@ -19,8 +20,8 @@
 
   <% if @trip.restaurants.count > 0 %>
     <h3>Restaurants Visiting on Trip</h3>
-    <% @trip.restaurants.each do |tr| %>
-      <p><%= link_to tr.name, tr %> | </p>
+    <% @trip.trip_restaurants.each do |tr| %>
+      <p><%= link_to tr.restaurant.name, restaurant_path(tr.restaurant) %> | <%= link_to "Delete", trip_restaurant_path(tr), method: :delete%><br></p>
     <% end %>
 
     <% else %>

@@ -17,7 +17,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.all
+    redirect_to current_user
   end
 
   def show
