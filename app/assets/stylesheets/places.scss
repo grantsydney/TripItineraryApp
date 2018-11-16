@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.places-background{
+#places-background{
   background-image: asset-url('wood.png');
   background-position: center;
   background-repeat: repeat-x;
   background-size: cover;
   height: 100%;
-  opacity: .5;
+  opacity: .6;
 }
 
 #places-content {
@@ -70,10 +70,13 @@
 }
 
 .places-text{
-  padding-top: 2.5%;
+  // padding-top: 2%;
   text-align: justify;
   float: left;
   width: 40%;
+  font-size: 1.3em;
+  font-family: 'Noto Sans SC', sans-serif;
+
 }
 
 .places-image{
@@ -86,7 +89,8 @@
 .button-container{
   width: 40%;
   margin: 0 auto;
-  padding-top: 30px;
+  // padding-top: 30px;
+  height: 8%;
   clear: both;
 }
 
