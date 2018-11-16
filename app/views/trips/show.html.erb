@@ -32,9 +32,9 @@
 
 <div id="my-itinerary-button-options">
 
-  <p class="my-itinerary-buttons"> <%=link_to "Add Events", places_path %></p>
-  <p class="my-itinerary-buttons"> <%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></p>
-  <p class="my-itinerary-buttons"> <%= link_to "View All my Trips", user_path(@trip.user) %> </p>
+  <p class="my-itinerary-buttons"> <button class="ui orange button"><%=link_to "Add Events", places_path %></button></p>
+  <p class="my-itinerary-buttons"> <button class="ui orange button"><%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></button></p>
+  <p class="my-itinerary-buttons"> <button class="ui orange button"><%= link_to "View All my Trips", user_path(@trip.user) %><button></p>
 </div>
 
 <script type="text/javascript">

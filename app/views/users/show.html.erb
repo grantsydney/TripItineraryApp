@@ -11,7 +11,7 @@
   <h2 id="my-trips-title">My Trips</h2>
 
   <% @user.trips.each_with_index do |trip, i| %>
-  <p><%= "#{i+1}: #{trip.location.city} |" %> <%= link_to "See Itinerary", trip_path(trip) %>  <%= link_to "Delete", trip_path(trip), method: "delete", :data => {:confirm => "Delete your trip to #{trip.location.city}?"} %></p>
+  <p><%= "#{i+1}: #{trip.location.city} |" %> <button class="ui orange button"><%= link_to "See Itinerary", trip_path(trip) %> </button> <%= link_to "Delete", trip_path(trip), method: "delete", :data => {:confirm => "Delete your trip to #{trip.location.city}?"} %></p>
   <% end %>
 
 
@@ -19,7 +19,7 @@
   <h2 id="no-trips-title">You Have No Trips Planned!</h2>
   <% end %>
 
-  <button class="ui orange button"><%= link_to "Create New Trip", new_trip_path %></button>
+  <%= link_to "Create New Trip", new_trip_path %>
 
   <% else %>
   <h1>You do not have access to another user's itinerary</h1>

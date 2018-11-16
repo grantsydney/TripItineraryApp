@@ -16,15 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Baloo|Inconsolata|Kalam|Life+Savers:700" rel="stylesheet">    <script src="typeit.min.js"></script>
 
-<body>
-    <div id="universal-login-button">
-      <% if current_user && request.env['PATH_INFO'] != "/"%>
-        <%= button_to('Logout', logout_path, {method: :delete, id: 'universal-logout'}) %>
-        <% elsif !current_user && request.env['PATH_INFO'] != "/login" && request.env['PATH_INFO'] != "/"%>
+  <body>
 
-      <%= button_to('Login', login_path, {method: :get, id: 'universal-login'})%>
-      <% end %>
-    </div>
+    <% if current_user && request.env['PATH_INFO'] != "/"%>
+      <%= link_to('Logout', logout_path, {method: :delete, id: 'universal-logout', class: 'ui button inverted green'}) %>
+    <% elsif !current_user && request.env['PATH_INFO'] != "/login" && request.env['PATH_INFO'] != "/"%>
+      <%= link_to('Login', login_path, {method: :get, id: 'universal-login'})%>
+    <% end %>
+
 
     <%= yield %>
   </body>

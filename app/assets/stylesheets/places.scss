@@ -26,6 +26,21 @@
   height: 90%;
 }
 
+#places-list-content {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  background-color: rgba(150, 150, 150, 0.3);
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 95%;
+}
+
 .place-description{
   width: 75%;
   margin: auto;
@@ -71,4 +86,17 @@
 
 .itinerary-return{
   float: right;
+}
+
+#search-form-div{
+  width: 80%;
+  margin: 4% auto;
+}
+
+#places-list{
+  font-size: .8em;
+}
+
+#link-color{
+  color: #21ba45 !important;
 }

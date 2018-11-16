@@ -1,19 +1,25 @@
+<div id="places-background">
 
-<%= form_tag places_path, method: :get, class: "search-form" do %>
-  <%= text_field_tag(:search, params[:search], placeholder: "Search for activity") %>
-  <%= button_tag "Find Activities" %>
+</div>
 
-<% end %>
+<<div id="places-list-content">
+  <div id="search-form-div">
+    <%= form_tag places_path, method: :get, class: "ui form" do %>
+      <%= text_field_tag(:search, params[:search], placeholder: "Search for activity") %>
+      <br><br>
+      <%= button_tag "Find Activities", { class: "ui button"} %>
+    <% end %>
+
+  </div>
 
 
-
-
-<% if @places %>
-  <% @places.each do |place| %>
-    <p><%= "#{place.name} Rating: #{place.rating}"%>
-      <%= link_to "Add to Itinerary", custom_path(place.place_id), method: "post"%></p>
+  <% if @places %>
+    <% @places.each do |place| %>
+      <p id="places-list"><%= "#{place.name} Rating: #{place.rating}"%> |
+        <%= link_to "Add to Itinerary", custom_path(place.place_id), {method: "post", id: "link-color"}%></p>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<%= link_to "View My Itinerary",  trip_path(session[:trip_id])%>
+  <%= link_to "View My Itinerary",  trip_path(session[:trip_id])%>
+</div>
