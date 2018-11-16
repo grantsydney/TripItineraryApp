@@ -15,7 +15,7 @@
   <% if @trip.places.count > 0 %>
   <h3>What's On Your Agenda?</h3>
   <% @trip.places.each do |p| %>
-  <p><%= link_to p.name, p, :class => "trip-link" %> | <%= link_to "Delete", place_path(p), :method => :delete, :class => "trip-link" %><br></p>
+  <span class="trip-link"><%= link_to p.name, p %> </span> <span class="delete-link"><%= link_to "Delete", place_path(p), :method => :delete %></span><br>
   <% end %>
 
   <% else %>
@@ -34,7 +34,7 @@
 
   <p class="my-itinerary-buttons"> <button class="ui orange button"><%=link_to "Add Events", places_path %></button></p>
   <p class="my-itinerary-buttons"> <button class="ui orange button"><%= link_to "Delete This Trip", @trip, method: "delete", :data => {:confirm => "Delete your trip to #{@trip.location.city}?"} %></button></p>
-  <p class="my-itinerary-buttons"> <button class="ui orange button"><%= link_to "View All my Trips", user_path(@trip.user) %><button></p>
+  <p class="my-itinerary-buttons"> <button class="ui orange button"><%= link_to "View All my Trips", user_path(@trip.user) %></button></p>
 </div>
 
 <script type="text/javascript">
