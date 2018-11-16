@@ -7,13 +7,13 @@
   <% if @trip %>
   <% session[:trip_id] = @trip.id %>
 
-  <h2>You are headed to <%= @trip.location.city%>.</h2>
+  <h2 id="headed-to-text">You are headed to <%= @trip.location.city%>.</h2>
 
 
   <!--if events, list them, else, say no events added-->
 
   <% if @trip.places.count > 0 %>
-  <h3>What's On Your Agenda?</h3>
+  <h3 id="agenda-text">What's On Your Agenda?</h3>
   <% @trip.places.each do |p| %>
   <span class="trip-link"><%= link_to p.name, p %> </span> <span class="delete-link"><%= link_to "Delete", place_path(p), :method => :delete %></span><br>
   <% end %>
