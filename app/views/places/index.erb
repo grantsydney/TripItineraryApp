@@ -1,25 +1,27 @@
-<div id="places-background">
+<div class="places-background"></div>
+<div class="places-background"></div>
 
-</div>
-
-<<div id="places-list-content">
+<div id="places-list-content">
   <div id="search-form-div">
     <%= form_tag places_path, method: :get, class: "ui form" do %>
       <%= text_field_tag(:search, params[:search], placeholder: "Search for activity") %>
       <br><br>
+    </div>
+  <div>
+    <div id="find-activities-button">
       <%= button_tag "Find Activities", { class: "ui button"} %>
+    </div>
     <% end %>
-
+  </div>
+  <div id="list-of-possible-activities">
+    <% if @places %>
+    <% @places.each do |place| %>
+    <p id="places-list"><%= "#{place.name} Rating: #{place.rating}"%> |
+      <%= link_to "Add to Itinerary", custom_path(place.place_id), {method: "post", id: "link-color"}%></p>
+      <% end %>
+      <% end %>
   </div>
 
 
-  <% if @places %>
-    <% @places.each do |place| %>
-      <p id="places-list"><%= "#{place.name} Rating: #{place.rating}"%> |
-        <%= link_to "Add to Itinerary", custom_path(place.place_id), {method: "post", id: "link-color"}%></p>
-    <% end %>
-  <% end %>
-
-
-  <%= link_to "View My Itinerary",  trip_path(session[:trip_id])%>
 </div>
+<%= link_to "View My Itinerary",  trip_path(session[:trip_id]), class: "ui inverted green button", id: "place-view-itinerary"%>

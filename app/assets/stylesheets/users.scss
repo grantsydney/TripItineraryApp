@@ -27,13 +27,31 @@
 
 }
 
-#my-trips-title{
-  font-size: 3em;
+#my-trip-text{
+  font-size: 4em;
 
 }
 
 #no-trips-title{
 font-size: 3em;
+}
+
+#trip-delete-link{
+  font-size: 2em;
+  margin-left: 150px;
+}
+
+#trip-itinerary-link{
+  font-size: 2em;
+  float: left;
+}
+
+
+#create-trip-link{
+  position: absolute;
+  bottom: 4%;
+  font-size: 1.7em;
+  left: 44%;
 }
 
 
@@ -97,12 +115,13 @@ margin-left: 7%;
   position: absolute;
   margin: auto;
   //
-  top: 32%;
+  top: 31%;
   right: 27%;
   // bottom: 0;
   // left: 0;
   width: 30%;
   height: 39%;
+
 }
 
 #login-form{
