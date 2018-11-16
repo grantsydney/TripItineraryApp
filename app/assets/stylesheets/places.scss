@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#places-background{
+
+
+.places-background{
+
   background-image: asset-url('wood.png');
   background-position: center;
-  background-repeat: repeat-x;
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100%;
-  opacity: .6;
+  opacity: .85;
 }
 
 #places-content {
