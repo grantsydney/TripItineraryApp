@@ -4,7 +4,7 @@
 
 //CSS FOR USER SHOW (all my trips)
 #my-trips-background{
-  background-image: asset-url('/travelpal/wood.png');
+  background-image: image_url('wood.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,7 +57,7 @@ font-size: 3em;
 
 //CSS FOR USER SIGN UP PAGE
 #signup-background {
-  background-image: asset-url('/travelpal/adventure-ball-shaped-blur-346885.jpg');
+  background-image: image_url('adventure-ball-shaped-blur-346885.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,7 +101,7 @@ margin-left: 7%;
 
 //CSS for USER LOGIN PAGE
 #login-background {
-  background-image: asset-url('/travelpal/antique-backdrop-background-733853.jpg');
+  background-image: image_url('antique-backdrop-background-733853.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

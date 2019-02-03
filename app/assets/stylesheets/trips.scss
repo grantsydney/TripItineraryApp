@@ -27,7 +27,7 @@
 }
 
 #my-itinerary-background{
-  background-image: asset-url('wood.png');
+  background-image: image_url('wood.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -91,7 +91,7 @@
 
 //CSS FOR TRIPS NEW
 #trips-new-background{
-  background-image: asset-url('/travelpal/art-artist-background-316466.jpg');
+  background-image: image_url('art-artist-background-316466.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
